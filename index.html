@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Proyecto "El chinampero"</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script>
+        // Componente para abrir un enlace externo al hacer clic
+        AFRAME.registerComponent('open-link-on-click', {
+            schema: { type: 'string' },
+            init: function () {
+                this.el.addEventListener('click', () => {
+                    window.open(this.data, '_blank');
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <a-scene>
+
+        <!-- Cámara con controles -->
+        <a-entity position="0 0.5 10">
+            <a-camera wasd-controls look-controls></a-camera>
+            <a-camera wasd-controls look-controls>
+
+                <!-- HUD: Botón con ícono y animación -->
+                <a-entity id="videoButton" position="0 0 -1.5">
+
+                    <!-- Fondo del botón -->
+                    <a-plane id="btnPlane" position="1.9 1.2 -1" width="0.7" height="0.3" color="#d9534f" opacity="0.95"
+                        event-set__mouseenter="_event: mouseenter; color: #c9302c"
+                        event-set__mouseleave="_event: mouseleave; color: #d9534f" class="clickable"
+                        onclick="window.open('https://youtu.be/llfQ8ZgDfNI?si=ZcXPoSrHDguoH2Lk', '_blank')">
+                    </a-plane>
+
+                    <!-- Texto del botón -->
+                    <a-text value="Ver video" position="1.9 1.2 -0.99" align="center" width="2" color="#fff"
+                        shader="msdf" font="https://cdn.aframe.io/fonts/Roboto-msdf.json">
+                    </a-text>
+
+                    <!-- Ícono (emoji de video) -->
+                    <a-text value="🎥" position="1.55 1.2 -0.99" align="center" width="1" color="#fff">
+                    </a-text>
+
+                </a-entity>
+
+            </a-camera>
+
+        </a-entity>
+
+        </a-camera>
+
+        </a-entity>
+
+        <!-- Piso y paredes en gris -->
+        <a-plane rotation="-90 0 0" width="20" height="20" color="#888"></a-plane>
+        <a-box position="0 2 -5" depth="0.1" height="4" width="10" color="#888"></a-box>
+        <a-box position="-5 2 0" depth="10" height="4" width="0.1" color="#888"></a-box>
+        <a-box position="5 2 0" depth="10" height="4" width="0.1" color="#888"></a-box>
+        <a-box position="0 4 0" depth="10" height="0.1" width="10" color="#888"></a-box>
+
+        <!-- === Cuadro 1 === -->
+        <a-box position="-2.5 2 -4.9" width="2.2" height="1.7" depth="0.05" color="#333"></a-box>
+        <a-image src="img/img8.jpg" position="-2.5 2 -4.82" width="2" height="1.5"></a-image>
+        <a-plane position="-2.5 0.7 -4.9" width="4.8" height="1.2" color="#222" opacity="0.7"></a-plane>
+        <a-text value="Principales causas de la reduccion
+Urbanizacion y asentamientos irregulares, incluso dentro de zonas protegidas.
+Infraestructura y uso de suelo no agricola, como invernaderos, canchas deportivas y salones de eventos. 
+Drenaje y perdida del lago – se ha secado buena parte del cuerpo de agua original. 
+Contaminacion del agua y extraccion excesiva de agua subterranea." position="-2.5 0.85 -4.89" width="4.5"
+            align="center" color="#fff" shader="msdf" font="https://cdn.aframe.io/fonts/Roboto-msdf.json"
+            wrap-count="80">
+        </a-text>
+
+        <!-- === Cuadro 2 === -->
+        <a-box position="2.5 2 -4.9" width="2.2" height="1.7" depth="0.05" color="#333"></a-box>
+        <a-image src="img/img7.jpg" position="2.5 2 -4.82" width="2" height="1.5"></a-image>
+        <a-plane position="2.5 0.7 -4.9" width="4.8" height="1.2" color="#222" opacity="0.7"></a-plane>
+        <a-text value="¿Como podemos ayudar a cuidar las chinampas de Xochimilco?
+
+No tirar basura ni contaminar los canales.
+Participar en jornadas de limpieza y conservacion.
+Informarnos y compartir la importancia de las chinampas.
+Evitar plasticos y quimicos cerca de la zona.
+" position="2.5 0.85 -4.89" width="4.5" align="center" color="#fff" shader="msdf"
+            font="https://cdn.aframe.io/fonts/Roboto-msdf.json" wrap-count="80">
+        </a-text>
+
+        <!-- === Cuadro 3 === -->
+        <a-box position="-2.5 2 -1" width="2.2" height="1.7" depth="0.05" color="#333"></a-box>
+        <a-image src="img/img6.jpg" position="-2.5 2 -0.92" width="2" height="1.5"></a-image>
+        <a-plane position="-2.5 0.7 -1" width="4.8" height="1.2" color="#222" opacity="0.7"></a-plane>
+        <a-text value="Reduccion de las chinampas: 
+
+Desde el siglo XX, el crecimiento urbano ha reducido drasticamente las chinampas de Xochimilco.
+Entre 1989 y 2006, la urbanizacion aumento del 46.7 % al 57.2 %, invadiendo tierras agricolas.
+De mas de 15,000 chinampas originales, hoy solo quedan activas unas 864.
+Ademas, se han perdido mas de 200 hectareas en zonas protegidas por urbanizacion, construcciones y usos no agricolas.
+" position="-2.5 0.85 -0.95" width="4.5" align="center" color="#fff" shader="msdf"
+            font="https://cdn.aframe.io/fonts/Roboto-msdf.json" wrap-count="80">
+        </a-text>
+
+        <!-- === Cuadro 4 === -->
+        <a-box position="2.5 2 -1" width="2.2" height="1.7" depth="0.05" color="#333"></a-box>
+        <a-image src="img/img2.jpg" position="2.5 2 -0.92" width="2" height="1.5"></a-image>
+        <a-plane position="2.5 0.7 -1" width="4.8" height="1.2" color="#222" opacity="0.7"></a-plane>
+        <a-text
+            value="El cempasuchil se cultiva en las chinampas de Xochimilco, especialmente para el Dia de Muertos. Cuidar las chinampas ayuda a preservar esta tradicion, apoyar a los agricultores locales y mantener una agricultura sustentable."
+            position="2.5 0.80 -0.95" width="4.5" align="center" color="#fff" shader="msdf"
+            font="https://cdn.aframe.io/fonts/Roboto-msdf.json" wrap-count="80">
+        </a-text>
+
+        <!-- === Cuadro 5 === -->
+        <a-box position="-2.5 2 2" width="2.2" height="1.7" depth="0.05" color="#333"></a-box>
+        <a-image src="img/img5.jpg" position="-2.5 2 2.1" width="2" height="1.5"></a-image>
+        <a-plane position="-2.5 0.7 2" width="4.8" height="1.2" color="#222" opacity="0.7"></a-plane>
+        <a-text
+            value="El maiz es un cultivo fundamental en Mexico y America, base de la alimentacion desde tiempos prehispanicos. Se cultiva en chinampas y otros metodos agricolas tradicionales. Ademas de ser alimento, el maiz tiene gran valor cultural y espiritual para muchas comunidades indigenas."
+            position="-2.5 0.85 2" width="4.5" align="center" color="#fff" shader="msdf"
+            font="https://cdn.aframe.io/fonts/Roboto-msdf.json" wrap-count="80">
+        </a-text>
+
+        <!-- === Cuadro 6 === -->
+        <a-box position="2.5 2 2" width="2.2" height="1.7" depth="0.05" color="#333"></a-box>
+        <a-image src="img/img4.jpg" position="2.5 2 2.1" width="2" height="1.5"></a-image>
+        <a-plane position="2.5 0.7 2" width="4.8" height="1.2" color="#222" opacity="0.7"></a-plane>
+        <a-text
+            value="La nochebuena es una flor originaria de Mexico, simbolo de la Navidad y reconocida por su intenso color rojo. Se cultiva en zonas como Xochimilco, donde las chinampas permiten su crecimiento de forma tradicional y sustentable. Es parte del patrimonio natural y cultural del pais."
+            position="2.5 0.80 2" width="4.5" align="center" color="#fff" shader="msdf"
+            font="https://cdn.aframe.io/fonts/Roboto-msdf.json" wrap-count="80">
+        </a-text>
+
+        <!-- === Cuadro 7 === -->
+        <a-box position="-2.5 2 5" width="2.2" height="1.7" depth="0.05" color="#333"></a-box>
+        <a-image src="img/img1.jpg" position="-2.5 2 5.1" width="2" height="1.5"></a-image>
+        <a-plane position="-2.5 0.7 5" width="4.8" height="1.2" color="#222" opacity="0.7"></a-plane>
+        <a-text
+            value="Las chinampas son un legado vivo de las antiguas civilizaciones mesoamericanas, especialmente de los mexicas. Son una de las tecnicas agricolas mas ingeniosas del mundo, desarrolladas hace mas de 700 años. En 1987, Xochimilco fue declarado Patrimonio Cultural de la Humanidad por la UNESCO."
+            position="-2.5 0.85 5" width="4.5" align="center" color="#fff" shader="msdf"
+            font="https://cdn.aframe.io/fonts/Roboto-msdf.json" wrap-count="80">
+        </a-text>
+
+        <!-- === Cuadro 8 === -->
+        <a-box position="2.5 2 5" width="2.2" height="1.7" depth="0.05" color="#333"></a-box>
+        <a-image src="img/img3.jpg" position="2.5 2 5.1" width="2" height="1.5"></a-image>
+        <a-plane position="2.5 0.7 5" width="4.8" height="1.2" color="#222" opacity="0.7"></a-plane>
+        <a-text
+            value="Herramientas tradicionales de las chinampas
+            Estas herramientas se usan para trabajar la tierra, sembrar, podar y cuidar los cultivos en las chinampas de Xochimilco. Son parte esencial de una tecnica agricola ancestral que combina conocimientos prehispanicos con practicas sustentables. Cada herramienta refleja el vinculo entre el ser humano y la naturaleza."
+            position="2.5 0.80 5" width="4.5" align="center" color="#fff" shader="msdf"
+            font="https://cdn.aframe.io/fonts/Roboto-msdf.json" wrap-count="80">
+        </a-text>
+
+        <!-- 3. 🌷 Tulipán -->
+        <a-entity position="-7 0 5">
+            <a-gltf-model src="modelos/tulipan.glb" scale="1 1 1"></a-gltf-model>
+        </a-entity>
+
+        <!-- 3. 🌷 Tulipán -->
+        <a-entity position="7 0 5">
+            <a-gltf-model src="modelos/tulipan.glb" scale="1 1 1"></a-gltf-model>
+        </a-entity>
+
+        <!-- Iluminación -->
+        <a-light type="ambient" color="#fff" intensity="0.6"></a-light>
+        <a-light type="point" intensity="1" position="0 4 0"></a-light>
+
+    </a-scene>
+</body>
+
+</html>
